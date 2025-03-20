@@ -1,21 +1,21 @@
 # Proyek Analisis Data: Kualitas Udara (PM2.5)
 
-Proyek ini bertujuan untuk melakukan analisis eksploratif pada dataset kualitas udara dengan fokus pada parameter **PM2.5**. Analisis dilakukan untuk memahami tren kualitas udara dari waktu ke waktu, mengidentifikasi faktor-faktor penyebab perbedaan kualitas udara antar lokasi, serta menyajikan dashboard interaktif yang memudahkan eksplorasi data.
+Proyek ini bertujuan untuk melakukan analisis eksploratif pada dataset kualitas udara dengan fokus pada parameter **PM2.5**. Analisis dilakukan untuk memahami tren kualitas udara dari waktu ke waktu, mengidentifikasi faktor-faktor penyebab perbedaan kualitas udara antar lokasi, serta menyajikan **dashboard interaktif** yang memudahkan eksplorasi data.
 
 ---
 
-## Tujuan Proyek
+## **Tujuan Proyek**
 
 1. **Menganalisis Tren PM2.5 di Masing-Masing Stasiun**  
-   - Menggunakan visualisasi *time series* dan agregasi musiman (misalnya, rata-rata bulanan) untuk mengidentifikasi pola dan fluktuasi konsentrasi PM2.5.
+   - Menggunakan visualisasi *time series* dan agregasi musiman (rata-rata bulanan) untuk mengidentifikasi pola dan fluktuasi konsentrasi PM2.5.
 
 2. **Menemukan Faktor Penyebab Perbedaan Kualitas Udara Antar Stasiun**  
    - Memanfaatkan *boxplot* untuk membandingkan distribusi PM2.5 di setiap stasiun.  
-   - Menganalisis korelasi PM2.5 dengan parameter lain (PM10, NO2, CO, O3, dan kondisi cuaca) guna melihat sumber polusi yang potensial.
+   - Menganalisis korelasi PM2.5 dengan parameter lain (*PM10, NO2, CO, O3*, dan faktor cuaca) guna melihat sumber polusi yang potensial.
 
 ---
 
-## Struktur Proyek
+## **Struktur Proyek**
 
 ```
 submission/
@@ -30,90 +30,117 @@ submission/
 └── README.md                    # Dokumentasi proyek
 ```
 
+### **Penjelasan File**
+
 1. **dashboard/app.py**  
-   File utama untuk menjalankan dashboard interaktif.
+   - File utama untuk menjalankan **dashboard interaktif Streamlit** yang memungkinkan eksplorasi data kualitas udara secara visual.
 
 2. **Proyek_Analisis_Data.ipynb**  
-   Notebook Jupyter yang memuat proses EDA, data cleaning, dan analisis lanjutan.
+   - Notebook utama yang memuat **EDA (Exploratory Data Analysis)**, **data cleaning**, serta **analisis mendalam** terkait PM2.5.
 
 3. **requirements.txt**  
-   Daftar library Python yang diperlukan.
+   - Berisi daftar **library Python** yang diperlukan untuk menjalankan proyek.
 
 4. **url.txt**  
-   (Opsional) Menyimpan link jika dashboard di-*deploy* secara online.
+   - Jika proyek dideploy online, file ini akan menyimpan **URL dashboard**.
 
 ---
 
-## Panduan Menjalankan Proyek
+## **Panduan Menjalankan Proyek**
 
-### 1. Menjalankan Notebook
+### **1️⃣ Menjalankan Notebook**
 
-1. **Instal dependencies**:
+1. **Instal dependensi** dengan menjalankan perintah berikut di terminal:  
 
-   ```bash
+   ```
    pip install -r requirements.txt
    ```
 
-2. **Jalankan Jupyter Notebook**:
+2. **Jalankan Jupyter Notebook** untuk melakukan eksplorasi dataset:  
 
-   ```bash
+   ```
    jupyter notebook Proyek_Analisis_Data.ipynb
    ```
 
 3. **Eksplorasi Notebook**  
-   Notebook memuat tahapan EDA (menampilkan contoh data, descriptive statistics, agregasi, dan visualisasi), proses cleaning (interpolasi missing value dan imputasi outlier), serta analisis lanjutan untuk menjawab pertanyaan bisnis.
+   - Notebook ini memuat tahapan **EDA**, proses **data cleaning** (interpolasi missing values, imputasi outlier), serta **analisis lanjutan** untuk menjawab pertanyaan bisnis terkait kualitas udara.
 
-### 2. Menjalankan Dashboard Interaktif (Streamlit)
+### **2️⃣ Menjalankan Dashboard Streamlit**
 
-1. **Jalankan perintah berikut di terminal** pada direktori proyek:
+1. **Jalankan perintah berikut di terminal** dalam direktori proyek:  
 
-   ```bash
+   ```
    streamlit run dashboard/app.py
    ```
 
 2. **Akses Dashboard**  
-   - Secara default, dashboard akan terbuka di browser pada alamat [http://localhost:8501](http://localhost:8501).  
-   - Di sidebar, Anda dapat memilih stasiun serta menampilkan atau menyembunyikan berbagai grafik.  
-   - Terdapat slider interaktif untuk memfilter data berdasarkan rentang waktu, memudahkan analisis tren PM2.5 secara mendalam.
+   - Secara default, dashboard akan terbuka di browser di alamat:  
+     **[http://localhost:8501](http://localhost:8501)**
+   - **Fitur utama** dashboard:  
+     ✅ Pemilihan **stasiun** secara interaktif  
+     ✅ **Visualisasi tren** PM2.5 berdasarkan waktu  
+     ✅ **Perbandingan distribusi PM2.5** antar stasiun  
+     ✅ **Matriks korelasi** dengan faktor lingkungan
 
 ---
 
-## Dependencies Utama
+## **Dependencies Utama**
 
-- **pandas**  
-- **numpy**  
-- **matplotlib**  
-- **seaborn**  
-- **streamlit**  
-- **plotly** (untuk visualisasi interaktif)
+- **pandas** (manipulasi data)  
+- **numpy** (operasi numerik)  
+- **matplotlib & seaborn** (visualisasi data statis)  
+- **streamlit** (dashboard interaktif)  
+- **plotly** (visualisasi interaktif)
 
-> Instal semua dependencies sekaligus menggunakan:
+> **Cara install dependencies**:  
 >
-> ```bash
+> ```
 > pip install -r requirements.txt
 > ```
 
 ---
 
-## Insight dari Analisis
+## **Insight dari Analisis**
 
 - **Tren PM2.5**  
-  Konsentrasi PM2.5 menunjukkan pola musiman dengan nilai yang lebih tinggi pada periode tertentu (misalnya, musim dingin), diduga dipengaruhi oleh suhu, curah hujan, dan aktivitas manusia (seperti pembakaran dan pemanasan).
+  - Konsentrasi PM2.5 menunjukkan **pola musiman**, dengan peningkatan signifikan pada **musim dingin** dan penurunan pada **musim panas**.  
+  - Hal ini diduga dipengaruhi oleh **suhu udara, kelembapan, curah hujan**, serta **aktivitas manusia** seperti pembakaran bahan bakar.
 
 - **Perbedaan Antar Stasiun**  
-  Distribusi PM2.5 antar stasiun bervariasi cukup signifikan. Beberapa stasiun memiliki median PM2.5 lebih tinggi, mengindikasikan sumber polusi lokal seperti aktivitas industri atau padatnya lalu lintas. Korelasi tinggi antara PM2.5 dan polutan lain (PM10, NO2, CO) menunjukkan kemungkinan besar sumber emisi yang serupa.
+  - Distribusi PM2.5 antar stasiun **bervariasi signifikan**.  
+  - Beberapa stasiun memiliki **median PM2.5 yang tinggi**, mengindikasikan adanya **sumber polusi lokal**, seperti **aktivitas industri atau kepadatan lalu lintas**.  
+  - Korelasi tinggi antara **PM2.5 dan polutan lain (PM10, NO2, CO)** menunjukkan kemungkinan besar bahwa sumber emisi polusi berasal dari aktivitas yang serupa.
 
 - **Efektivitas Data Cleaning**  
-  Proses interpolasi *missing values* dan imputasi outlier dengan median terbukti menurunkan bias pada nilai rata-rata. Data menjadi lebih siap untuk analisis trend dan korelasi.
+  - **Interpolasi missing values** dan **imputasi outlier** dengan median berhasil **mengurangi bias pada perhitungan rata-rata PM2.5**.  
+  - Data yang telah dibersihkan kini **lebih siap** untuk analisis tren dan korelasi.
 
 ---
 
-## Kontak
+## **Kesimpulan**
 
-Untuk pertanyaan lebih lanjut atau kolaborasi, silakan hubungi:
+✅ **Tren musiman menunjukkan peningkatan PM2.5 pada musim dingin**, mengindikasikan faktor lingkungan dan aktivitas pemanasan sebagai penyebab.  
+✅ **Perbedaan konsentrasi PM2.5 antar stasiun menunjukkan adanya sumber polusi lokal**, terutama di area industri dan perkotaan.  
+✅ **Korelasi tinggi antara PM2.5 dan PM10, CO, NO2** menunjukkan bahwa sumber emisi utama berasal dari transportasi dan industri.  
+✅ **Kecepatan angin memiliki korelasi negatif dengan PM2.5**, yang berarti angin membantu mengurangi polusi udara.  
+
+---
+
+## **Rekomendasi**
+
+📌 **Pengawasan ketat pada periode puncak PM2.5**, terutama **musim dingin**, untuk mengurangi dampak polusi udara.  
+📌 **Kebijakan pengurangan emisi kendaraan dan industri** di daerah dengan konsentrasi PM2.5 tinggi.  
+📌 **Peningkatan penghijauan dan pengaturan zona industri** untuk membantu mengurangi polusi di area dengan kualitas udara buruk.  
+📌 **Sistem peringatan dini** berbasis faktor lingkungan seperti kecepatan angin dan kelembapan, agar bisa memprediksi lonjakan polusi udara.  
+
+---
+
+## **Kontak**
+
+Jika Anda memiliki pertanyaan atau ingin berdiskusi lebih lanjut, silakan hubungi:
 
 - **Nama**: Izzuddin Ahmad Afif  
 - **Email**: [izzuddinafif@gmail.com](mailto:izzuddinafif@gmail.com)  
-- **ID Dicoding**: izzuddinafif
+- **ID Dicoding**: izzuddinafif  
 
-Terima kasih telah mengunjungi proyek ini. Semoga analisis dan *dashboard* yang disediakan dapat membantu dalam memahami dinamika kualitas udara dan menjadi acuan untuk tindakan atau kebijakan lebih lanjut.
+Terima kasih telah mengunjungi proyek ini! Semoga analisis dan **dashboard** yang disediakan dapat membantu memahami dinamika kualitas udara dan menjadi acuan bagi tindakan atau kebijakan lebih lanjut.
